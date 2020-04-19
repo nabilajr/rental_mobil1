@@ -4,28 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Modeljenis_cuci;
+use App\Modeljenis_mobil;
 
-class jenis_cuci extends Controller
+class jenis_mobil extends Controller
 {
     public function store(Request $req)
     {
         $validator = Validator::make($req->all(), 
         [
-            'nama_jenis' => 'required',
-            'harga_per_kg' => 'required',
+            'jenis_mobil' => 'required',
+    
         ]);
 
         if($validator->fails()){
             return Response()->json($validator->errors());
         }
 
-        $laundry = Modeljenis_cuci::create([
-            'nama_jenis' => $req->nama_jenis,
-            'harga_per_kg' => $req->harga_per_kg,
+        $mobil = Modeljenis_mobil::create([
+            'jenis_mobil' => $req->jenis_mobil,
             
         ]);
-        if($laundry){
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil ditambahkan!']);
         }
         else{
@@ -37,19 +36,18 @@ class jenis_cuci extends Controller
     {
         $validator=Validator::make($req->all(),
         [
-            'nama_jenis' => 'required',
-            'harga_per_kg' => 'required',
+            'jenis_mobil' => 'required',
+           
             
         ]);
         if($validator->fails()){
             return Response()->json($validator->errors());
         }
-        $laundry=Modeljenis_cuci::where('id',$id)->update([
-            'nama_jenis' => $req->nama_jenis,
-            'harga_per_kg' => $req->harga_per_kg,
-            'telp'=> $req->telp,
+        $mobil=Modeljenis_mobil::where('id',$id)->update([
+            'jenis_mobil' => $req->jenis_mobil,
+
         ]);
-        if($laundry){
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil diubah']);
         }
         else{
@@ -59,8 +57,8 @@ class jenis_cuci extends Controller
 
     public function delete($id)
     {
-        $laundry=Modeljenis_cuci::where('id',$id)->delete();
-        if($laundry){
+        $mobil=Modeljenis_mobil::where('id',$id)->delete();
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil dihapus']);
         }
         else{
@@ -69,9 +67,9 @@ class jenis_cuci extends Controller
     }
     public function tampil()
     {
-        $laundry=Modeljenis_cuci::all();
-        if($laundry){
-            return Response()->json(['Data'=>$laundry,'status'=>1]);
+        $mobil=Modeljenis_mobil::all();
+        if($mobil){
+            return Response()->json(['Data'=>$mobil,'status'=>1]);
         }
         else{
             return Response()->json(['status'=>0]);

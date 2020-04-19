@@ -27,13 +27,13 @@ public function store(Request $req)
             return Response()->json($validator->errors());
         }
 
-        $laundry = Modeltransaksi::create([
+        $mobil = Modeltransaksi::create([
             'id_pelanggan' => $req->id_pelanggan,
             'id_petugas' => $req->id_petugas,
             'tgl_transaksi'=> $req->tgl_transaksi,
             'tgl_selesai'=> $req->tgl_selesai,
         ]);
-        if($laundry){
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil ditambahkan!']);
         }
         else{
@@ -85,13 +85,13 @@ public function store(Request $req)
         if($validator->fails()){
             return Response()->json($validator->errors());
         }
-        $laundry=Modeltransaksi::where('id',$id)->update([
+        $mobil=Modeltransaksi::where('id',$id)->update([
             'id_pelanggan' => $req->id_pelanggan,
             'id_petugas' => $req->id_petugas,
             'tgl_transaksi'=> $req->tgl_transaksi,
             'tgl_selesai'=> $req->tgl_selesai,
         ]);
-        if($laundry){
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil diubah']);
         }
         else{
@@ -101,8 +101,8 @@ public function store(Request $req)
 
     public function delete($id)
     {
-        $laundry=Modeltransaksi::where('id',$id)->delete();
-        if($laundry){
+        $mobil=Modeltransaksi::where('id',$id)->delete();
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil dihapus']);
         }
         else{

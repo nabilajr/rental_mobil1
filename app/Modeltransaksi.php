@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Modeltransaksi extends Model
 {
      protected $table="transaksi";
-    protected $primarykey="id";
+    protected $primarykey="id_transaksi";
     protected $fillable = [
-        'id_pelanggan', 'id_petugas', 'tgl_transaksi', 'tgl_selesai',
+        'id_mobil', 'id_penyewa', 'tgl_admin',
      ];
     public $timestamps=false;
 }

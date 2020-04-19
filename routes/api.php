@@ -39,11 +39,17 @@ Route::put('/transaksi/{id}', 'transaksi@update')->middleware('jwt.verify');
 Route::delete('/transaksi/{id}', 'transaksi@delete')->middleware('jwt.verify');
 Route::post('/transaksi', 'transaksi@store')->middleware('jwt.verify');
 
-// jenis_cuci \\
-Route::get('jenis_cuci/{id}','jenis_cuci@tampil_pinjam')->middleware('jwt.verify');
-Route::put('/jenis_cuci/{id}', 'jenis_cuci@update')->middleware('jwt.verify');
-Route::delete('/jenis_cuci/{id}', 'jenis_cuci@delete')->middleware('jwt.verify');
-Route::post('/jenis_cuci', 'jenis_cuci@store')->middleware('jwt.verify');
+// jenis_mobil \\
+Route::get('jenis_mobil/{id}','jenis_mobil@tampil_pinjam')->middleware('jwt.verify');
+Route::put('/jenis_mobil/{id}', 'jenis_mobil@update')->middleware('jwt.verify');
+Route::delete('/jenis_mobil/{id}', 'jenis_mobil@delete')->middleware('jwt.verify');
+Route::post('/jenis_mobil', 'jenis_mobil@store')->middleware('jwt.verify');
+
+// mobil \\
+Route::get('/mobil','mobil@tampil_pinjam')->middleware('jwt.verify');
+Route::put('/mobil/{id}', 'mobil@update')->middleware('jwt.verify');
+Route::delete('/mobil/{id}', 'mobil@delete')->middleware('jwt.verify');
+Route::post('/mobil', 'mobil@store')->middleware('jwt.verify');
 
 // detail transaksi \\
 //Route::get('detail_transaksi','detail_transaksi@tampil_pinjam')->middleware('jwt.verify');

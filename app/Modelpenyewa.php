@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Modelpenyewa extends Model
 {
-    protected $table="pelanggan";
-    protected $primarykey="id";
+    protected $table="penyewa";
+    protected $primarykey="id_penyewa";
          protected $fillable = [
-        'nama', 'alamat', 'telp', 
+        'nama_penyewa', 'username', 'password', 'no_kotp', 'alamat',
      ];
     public $timestamps=false;
 }

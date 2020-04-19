@@ -23,14 +23,14 @@ class penyewa extends Controller
             return Response()->json($validator->errors());
         }
 
-        $laundry = Modelpenyewa::create([
+        $mobil = Modelpenyewa::create([
             'nama_penyewa' => $req->nama_penyewa,
             'username' => $req->username,
             'password'=> $req->password,
             'no_ktp'=> $req->no_ktp,
             'alamat'=> $req->alamat,
         ]);
-        if($laundry){
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil ditambahkan!']);
         }
         else{
@@ -51,14 +51,14 @@ class penyewa extends Controller
         if($validator->fails()){
             return Response()->json($validator->errors());
         }
-        $laundry=Modelpenyewa::where('id_penyewa',$id)->update([
+        $mobil=Modelpenyewa::where('id_penyewa',$id)->update([
             'nama_penyewa' => $req->nama_penyewa,
             'username' => $req->username,
             'password'=> $req->password,
             'no_ktp'=> $req->no_ktp,
             'alamat'=> $req->alamat,
         ]);
-        if($laundry){
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil diubah']);
         }
         else{
@@ -68,8 +68,8 @@ class penyewa extends Controller
 
     public function delete($id)
     {
-        $laundry=Modelpenyewa::where('id_penyewa',$id)->delete();
-        if($laundry){
+        $mobil=Modelpenyewa::where('id_penyewa',$id)->delete();
+        if($mobil){
             return Response()->json(['status'=>1,'message'=>'Data Anggota berhasil dihapus']);
         }
         else{
@@ -78,9 +78,9 @@ class penyewa extends Controller
     }
     public function tampil()
     {
-        $laundry=Modelpenyewa::all();
-        if($laundry){
-            return Response()->json(['Data'=>$laundry,'status'=>1]);
+        $mobil=Modelpenyewa::all();
+        if($mobil){
+            return Response()->json(['Data'=>$mobil,'status'=>1]);
         }
         else{
             return Response()->json(['status'=>0]);
